@@ -1,10 +1,12 @@
-This tutorial allows you to complete the first steps with Icepack.
-[**This link**](https://cice-consortium-icepack.readthedocs.io/en/main/appendices/tutorial.html) sends you to an extensive guide for installing and running Icepack on you machine provided by the CICE Consortium.
-Following, you can find summarized the significant steps. If something is not clear, please have a look at the guide.
+This tutorial allows you to run an Early Eocene (~ 55 Ma) NEMO simulation.
+The bathymetry follows that provided by the model intercomparison project focussing on the Early Eocene ([**DeepMIP**](https://www.deepmip.org/deepmip-eocene/)). Details about the boundary conditions can be found [**here**](https://gmd.copernicus.org/articles/10/889/2017/) and the first results of this exercise are documented [**here**](https://cp.copernicus.org/articles/17/203/2021/cp-17-203-2021.html).
+This training guide is based on a modified global ORCA2 grid with displaced poles to accommodate the different global land/sea mask. The nominal resolution is 2° with enhancement in the equatorial band up to 0.5° resolution at the equator).
 
 
-### Step 0: configuring Git and conda
+### 0. System prerequisites
 
+- NetCDF package installed on your HPC
+- An arch file 
 Icepack will be installed through Git, therefore it is important that you have a running GitHub account and that you know its basic functionalities. If not, please follow [**this Git workflow guide**](https://github.com/CICE-Consortium/About-Us/wiki/Git-Workflow-Guide) provided by the CICE consortium. Large amount of information is provided on how to interact with the main code of Icepack; some of it is useful in the context of this project, other goes beyond the scope of this tutorial. I recommend reading them to familiarize yourself with the basic terminology, and to appreciate the complexity of running and maintaining a large geophysical model. The workflow guide is oriented toward setting up CICE rather than Icepack, but the same workflow applies to Icepack standalone.
 
 You also need conda. If you are lucky, conda is already installed in your system, either through Anaconda or Miniconda. Miniconda is a minimal installation of Anaconda, which will be enough for the scope of our project. Check if you have conda installed in your system by typing "conda".
