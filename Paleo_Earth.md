@@ -27,6 +27,10 @@ You should now have a folder PALEORCA2_demonstrator_forcings/ with all the neces
 
 ## 3. Paleoclimate instructions
 
+### 3.0 Compiling NEMO
+
+- 
+
 ### 3.1 Create the new DOMAIN
 
 - Put compiling instructions here? or in the main readme?
@@ -70,7 +74,43 @@ The major changes from the reference namelist (namelist_ref) are as follows:
 - &namlbc namelist
   - rn_shlat = 2 => This is to be consistent with what is set for the dynamics later but really, it does not seem to matter really here.
  
-Then execute the 
+Then execute make_domain_cfg.exe and dom_doc.exe (the latter adding the namelist_cfg to the domain_cfg.nc file as a variable, for tracability):
+```
+./make_domain_cfg.exe
+./dom_doc.exe
+```
+The outputs are named mesh_mask.nc and domain_cfg.nc.
+
+To comply with NEMOv5.0.1 formalism, a few manipulations are done:
+- Rename the z axis:
+```
+ncrename -d nav_lev,z domain_cfg.nc
+```
+- Remove no longer necessary variables:
+```
+ncks -O --no_abc -C -x -v jpiglo,jpjglo,jpkglo,jperio,ln_zco,ln_zps,ln_sco,ln_isfcav,time_counter domain_cfg.nc PALEORCA2_domain_cfg.nc
+```
+- Edit the global attributes as per instructed in the migration document from 4.0 to 4.2 and later:
+```
+ncatted -O -a Iperio,global,c,l,1 \
+           -a Jperio,global,c,l,0 \
+           -a NFold,global,c,l,1 \
+           -a NFtype,global,c,c,'F' \
+           -a CfgName,global,c,c,'PALEORCA' \
+           -a CfgIndex,global,c,l,2 \
+           -a VertCoord,global,c,c,'zps' \
+           -a IsfCav,global,c,l,0 \
+           PALEORCA2_domain_cfg.nc
+```
+The same can be done on the mesh_mask.nc file.
+
+### Run a PALEORCA2 simulation of the Early Eocene
+
+You are now ready to run a NEMO simulation of the Early Eocene. 
+Edit: for now, the tutorial does not include PISCES or TOP, for simplicity. It will be updated later.
+
+Go the the PALEORCA2 folder that has been created as part of the compilation step.
+
 
 
 <mark/>!---------------------------------------------  <mark/>  
