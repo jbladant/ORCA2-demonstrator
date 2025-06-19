@@ -26,4 +26,8 @@ ncks -O --no_abc -C -x -v jpiglo,jpjglo,jpkglo,ORCA,ORCA_index,jperio,ln_zco,ln_
 ncatted -a Iperio,global,c,l,1 -a NFtype,global,c,c,T -a CfgName,global,c,c,ORCA -a CfgIndex,global,c,l,2 -a Jperio,global,c,l,0 -a NFold,global,c,l,1 -a NFType,global,c,c,T -a VertCoord,global,c,c,zps -a IsfCav,global,c,l,0 -a NEMOversion,global,c,c,5.f domain_cfg_tmp.nc domain_cfg.nc
 ```
 In addition, this configuration
-
+ncap2 -O --ftn -s "/* create strait shlat: */ ; strait_shlat=array(-1.,0.,glamt) ;" \
+               -s "/* Gibaltar: */ ; e2u(:,102,138:139)=20.e3 ; strait_shlat(:,101:102,138:139)=0.5 ;" \
+               -s "/* Bab el Mandeb: */ ; e2u(:,88,158:159)=18.e3 ; e1v(:,87:88,159)=18.e3 ; strait_shlat(:,88,158:159)=1.0 ; strait_shlat(:,87,159)=1.0 ;" \
+               -s "/* Danish Straits: */ ; e2u(:,116,144:145)=10.e3 ;" \
+               $domold $domnew
