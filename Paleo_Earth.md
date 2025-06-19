@@ -25,9 +25,9 @@ tar -xvf PALEORCA2_demonstrator_forcings.tar
 You should now have a folder PALEORCA2_demonstrator_forcings/ with all the necessary files to run the demonstrator in your $WORK.
 
 
-### 3. Paleoclimate instructions
+## 3. Paleoclimate instructions
 
-###### 3.1 Create the new DOMAIN
+### 3.1 Create the new DOMAIN
 
 - Put compiling instructions here? or in the main readme?
 
@@ -63,6 +63,14 @@ The major changes from the reference namelist (namelist_ref) are as follows:
   - ldbletanh is set to .false. and coefficients ppa2, ppkth2 and ppacr2 to 999999. as appropriate for a standard, 31 levels, ORCA2-like grid.
 - &namcfg namelist
   - cn_cfg = "paleorca"
+  - jpjdta = 173 and Nj0glo = 173 because the PALEORCA2 grid has more j-levels to extend the grid towards the South Pole.
+  - jperio = 6 (i.e. F-point pivot) instead of standard T-point pivot of the original ORCA2 grid (jperio = 4)
+- &namzgr namelist
+  - ln_zps = .true.
+- &namlbc namelist
+  - rn_shlat = 2 => This is to be consistent with what is set for the dynamics later but really, it does not seem to matter really here.
+ 
+Then execute the 
 
 
 <mark/>!---------------------------------------------  <mark/>  
