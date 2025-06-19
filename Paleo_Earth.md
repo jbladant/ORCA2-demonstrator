@@ -102,7 +102,7 @@ ncatted -O -a Iperio,global,c,l,1 \
            -a IsfCav,global,c,l,0 \
            PALEORCA2_domain_cfg.nc
 ```
-The same can be done on the mesh_mask.nc file.
+The same can be done for the mesh_mask.nc file.
 
 ### Run a PALEORCA2 simulation of the Early Eocene
 
