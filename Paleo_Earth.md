@@ -27,9 +27,9 @@ You should now have a folder PALEORCA2_demonstrator_forcings/ with all the neces
 
 ## 3. Paleoclimate instructions
 
-### 3.0 Compiling NEMO
+### 3.0 Compiling XIOS and NEMO
 
-- 
+Please refer to [**Running ORCA2_ICE_PISCES**]() and use "PALEORCA2" as configuration name (option -n) when compiling NEMO.
 
 ### 3.1 Create the new DOMAIN
 
