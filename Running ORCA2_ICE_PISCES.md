@@ -13,18 +13,14 @@
 
 Note that the full path to your HPC work directory will be referred to as `$WORK` in this tutorial.
 
-Other info here: "Glossary", relevant links, ...?
+<mark>Other info here: "Glossary", relevant links, ...?
 
-
-basic info..? 
-make changes: keys, what else
-collect files 
-run nemo 
-
+basic info what is in namelist? Or better a link to the user-guide
+Keys?
 
 View outputs... 
 
-
+</mark>
 ____
 
 # 2. <a name="inputs"></a> Input files
@@ -138,3 +134,9 @@ If NEMO runs successfully, there will be a number of output files in netCDF form
 
 ___
 # <a name="outputs"></a> 5. View outputs
+
+Now you can use your preferred software to vies and analyse the outputs.
+
+<mark> Include some pretty results </mark>
+
+
