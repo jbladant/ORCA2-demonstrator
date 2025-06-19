@@ -21,13 +21,14 @@ These files are archived in PALEORCA2_demonstrator_forcings.tar.gz.
 Copy this zipped tarball to your HPC and extract the content
 
 ```
-scp PALEORCA2_demonstrator_forcings.tar.gz $path_to_your_HPC_directory
+scp PALEORCA2_demonstrator_forcings.tar.gz $WORK
 (after logging into your HPC)
+cd $WORK
 gunzip PALEORCA2_demonstrator_forcings.tar.gz
 tar -xvf PALEORCA2_demonstrator_forcings.tar
 ```
 
-You should now have a folder PALEORCA2_demonstrator_forcings/ with all the necessary files to run the demonstrator.
+You should now have a folder PALEORCA2_demonstrator_forcings/ with all the necessary files to run the demonstrator in your $WORK.
 
 ### 2. Compiling instructions
 
@@ -58,6 +59,36 @@ You can explore the tree structure of the main NEMO directory:
 => Add details as in WED025
 
 As for XIOS, NEMO requires arch files specific to your HPC. See [**NEMO user guide**](https://sites.nemo-ocean.io/user-guide/install.html#download-and-install-the-nemo-code) for instructions on setting up the arch files.
+
+### 3. Paleoclimate instructions
+
+###### 3.1 Create the new DOMAIN
+
+- Put compiling instructions here? or in the main readme?
+
+Create a DOMAIN_PALEORCA2 folder in your PALEORCA2_demonstrator_forcings directory:
+```
+cd $WORK/PALEORCA2_demonstrator_forcings
+mdkir DOMAIN_PALEORCA2
+cd DOMAIN_PALEORCA2
+```
+
+Then link the reference namelist and executables from the $WORK/your_NEMO_dirname/tools/DOMAINcfg into your DOMAIN_PALEORCA2 folder:
+```
+ln -s $WORK/your_NEMO_dirname/tools/DOMAINcfg/BLD/bin/make_domain_cfg.exe .
+ln -s $WORK/your_NEMO_dirname/tools/DOMAINcfg/BLD/bin/dom_doc.exe .
+ln -s $WORK/your_NEMO_dirname/tools/DOMAINcfg/namelist_ref . 
+```
+
+From the PALEORCA2_demonstrator_forcings folder, link files specific for the paleo (Early Eocene) configuration:
+```
+ln -s $WORK/PALEORCA2_demonstrator_forcings/PALEORCA2_coordinates.nc coordinates.nc
+ln -s $WORK/PALEORCA2_demonstrator_forcings/PALEORCA2_bathy_meter.nc bathy_meter.nc
+ln -s $WORK/PALEORCA2_demonstrator_forcings/PALEORCA2_namelist_cfg_dom namelist_cfg
+```
+
+The configuration namelist provided is already populated with the appropriate information but in the following are reviewed the major changes that have been made.
+
 
 ### 2. Testing github
 
