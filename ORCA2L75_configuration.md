@@ -37,12 +37,17 @@ The final domain file is domain_cfg_ORCA2L75.nc.
 
 ### Interpolate initial conditions and forcing files
 Three-dimensional files provided for the ORCA2_ICE reference configuration (https://gws-access.jasmin.ac.uk/public/nemo/sette_inputs/) must be interpolated.
-The used tool is Sosie, which enables the interpolation between ORCA grids. An example of the namelist used for interpolating the initial salinity is provided in *namelists/namelist.sosie.salinity*.
+The used tool is Sosie, which enables the interpolation between ORCA grids.
+The refer to https://github.com/brodeau/sosie/blob/master/README.md for software compilation and run.
+An example of the namelist used for interpolating the initial salinity is provided in *namelists/namelist.sosie.salinity*.
 
-The fields that requires interpolation are initial potential temperature and salinity, 3D eddy viscosity, monthly reference salinity, and restoring.
+The fields of reference configuration that requires interpolation are 
+- initial potential temperature and salinity
+- 3D eddy viscosity, monthly reference salinity
+- restoring.
+
 Since it does not comply the sosie requirements, the initial potential temperature file needs some manipulation before being interpolated. 
 The strainghforward way to solve the problem is to extract the variable from the netcdf file and add it to the initial salinity file.
-
 The reader shoud note that running the configuration ORCA2_ICE_PISCES requires extra interpolations.
 
 ### Modifications of the NEMO namelist for ORCA2L75
