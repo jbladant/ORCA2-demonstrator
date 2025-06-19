@@ -53,3 +53,9 @@ ln -s $WORK/PALEORCA2_demonstrator_forcings/PALEORCA2_namelist_cfg_dom namelist_
 ```
 
 The configuration namelist provided is already populated with the appropriate information but in the following are reviewed the major changes that have been made.
+
+<mark/>!---------------------------------------------  <mark/>  
+<mark/>&namrun        !   parameters of the run  <mark/>  
+<mark/>!---------------------------------------------  <mark/>  
+<mark/>  cn_exp      =  "domaincfg"  !  experience name  <mark/>  
+
