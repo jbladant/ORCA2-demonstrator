@@ -1,6 +1,6 @@
 # ORCA2-demonstrator
 
-The PALEORCA2 demonstrator is a use case for the NEMO ocean model based on the default configuration ORCA2_ICE_PISCES. This tutorial describes how to set-up and run the default configuration as well as selected possible adjustments to customise the simulation. 
+The ORCA2 demonstrator is a use case for the NEMO ocean model based on the default configuration ORCA2_ICE_PISCES. This tutorial describes how to set-up and run the default configuration as well as selected possible adjustments to customise the simulation. 
 
 The adjustments described in this tutorial are
 * how to add a new diagnostic to the model outputs
