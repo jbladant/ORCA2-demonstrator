@@ -92,14 +92,16 @@ As for XIOS, NEMO requires arch files specific to your HPC. See [NEMO user guide
 In `$WORK/your_NEMO_dir`, run the following:
 
 ```
-./makenemo -r ORCA2_ICE_PISCES -n your_config_name -m EXAB
+./makenemo -r ORCA2_ICE_PISCES -n your_config_name -m X64_IRENE
 ```
-`-r` defines the reference configuration found in `your_NEMO_dir/cfgs/, `-n` is the name you want to give your configuration, and `-m` defines the machine architecture, i.e. the file in `arch/` specific to your HPC. 
+`-r` defines the reference configuration found in `your_NEMO_dir/cfgs/. `-n` is the name you want to give your configuration. `-m` defines the machine architecture, i.e. the file in `arch/` specific to your HPC, which in this example is the Irene HPC again.
 
 **Note** You may have to `module load` additional modules for the compilation to succeed, but this is dependent on your HPC. 
 
 ___ 
 # <a name="runnemo"></a> 4. Running ORCA2_ICE_PISCES
+
+If the compilation of NEMO was successful, there will be 
 
 Collect all files
 Run
