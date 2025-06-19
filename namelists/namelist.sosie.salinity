@@ -1,0 +1,77 @@
+!! -------------------
+!! Namelist for SOSIE
+!! -------------------
+!!
+!! EXAMPLE 2: 3D interpolation from regular lat-lon to ORCA grid
+!! ##############################################################
+!!
+!!
+&ndom_src
+csource    = 'ORCA2L31'
+ivect      = 0
+l_reg_src  = .false.
+cf_src     = '/data/cmcc/fc09621/NEMO_INPUT/ORCA2/ORCA2_ICE_v5.0.0/data_1m_salinity_nomask.nc'
+cv_src     = 'vosaline'
+cv_t_src   = 'time_counter'
+cf_x_src   = '/data/cmcc/fc09621/NEMO_INPUT/ORCA2/ORCA2_ICE_v5.0.0/data_1m_salinity_nomask.nc'
+cv_lon_src = 'nav_lon'
+cv_lat_src = 'nav_lat'
+cf_lsm_src = 'missing_value'
+cv_lsm_src = ''
+ewper_src  = 0  ! (360. to 1.)
+!!
+!! Only required if 3D interpolation (jplev==0):
+cf_z_src  = '/data/cmcc/fc09621/NEMO_INPUT/ORCA2/ORCA2_ICE_v5.0.0/data_1m_salinity_nomask.nc'
+cv_z_src  = 'depth'
+ctype_z_src = 'z'
+/
+!!
+!!
+&ndom_trg
+ctarget    = 'ORCA2L75'
+l_reg_trg  = .false
+cf_x_trg   = 'domain_cfg_orca2l75_nemo5.nc'
+cv_lon_trg = 'nav_lon'
+cv_lat_trg = 'nav_lat'
+cf_lsm_trg = ''
+cv_lsm_trg = ''
+ewper_trg  = 2
+!!
+!! Only required if 3D interpolation (jplev==0):
+cf_z_trg = 'domain_cfg_orca2l75_nemo5.nc'
+cv_z_trg = 'nav_lev'
+ctype_z_trg = 'z'
+/
+!!
+!!
+&ninterp
+cmethod  = 'bilin'
+!!
+idrown      = 0,20,.false.
+ixtrpl_bot  = 2
+l_save_drwn = .false.
+ismooth     = 0
+jt1         = 0
+jt2         = 0
+jplev       = 0  ! we want 3D interpolation
+vmax        =  50.
+vmin        = 0.
+ismooth_out = 0
+/
+!!
+!!
+&noutput
+cv_out    = 'vosaline'
+cu_out    = ''
+cln_out   = ''
+cv_t_out  = 'time_counter'
+cd_out    = '.'
+cextra    = 'akima'
+lmout     = .false.
+rmiss_val = -9999.
+lct       = .false.
+t0        = 0.
+t_stp     = 0.
+cv_z_out  = 'depth'
+/
+!!
