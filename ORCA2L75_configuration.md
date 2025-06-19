@@ -12,4 +12,4 @@ DOMAINcfg tool is compiled in the folder ~/nemo_5.0.1/tools with the command
 ./maketools -m ARCH_FILE -j N_PROCS -n DOMAINcfg
 ```
 If it does not work, try uploading the architecture environment manually with the command *source* ~/nemo_5.0.1/arch/your_architecture.env.
-The 
+The namelist used for running the DOMAINcfg tool is provided in *namelists/namelist_DOMAINcfg*.
