@@ -1,3 +1,6 @@
+Blurp? NEMO v5.0.1
+
+
 ## 1. System prerequisites
 
 - NetCDF package installed on your HPC
@@ -19,6 +22,33 @@ View outputs...
 
 
 ____
+
+## 2. Input files
+The input files for the ORCA2_ICE_PISCES configuration are provided through JASMIN [on this webpage](https://gws-access.jasmin.ac.uk/public/nemo/sette_inputs/). Download `ORCA2_ICE_v5.0.0.tar.gz` and `ORCA2_INPUTS_PISCES_v5.0.0.tar.gz`. 
+
+These files need to be on the HPC where NEMO is run. There are multiple ways to achieve this: 
+### Command line 
+On the HPC, cd to `$WORK` and run
+```
+wget "https://gws-access.jasmin.ac.uk/public/nemo/sette_inputs/r5.0.0/ORCA2_ICE_v5.0.0.tar.gz"
+wget "https://gws-access.jasmin.ac.uk/public/nemo/sette_inputs/extras/ORCA2_INPUTS_PISCES_v5.0.0.tar.gz"
+``` 
+Unzip the folder using 
+```
+tar -xf ORCA2_ICE_v5.0.0.tar.gz
+tar -xf ORCA2_INPUTS_PISCES_v5.0.0.tar.gz
+```
+### Via your personal computer 
+Download `ORCA2_ICE_v5.0.0.tar.gz` and `ORCA2_INPUTS_PISCES_v5.0.0.tar.gz` from [this webpage](https://gws-access.jasmin.ac.uk/public/nemo/sette_inputs/). 
+Move the files to the HPC and into `$WORK`
+```
+scp ...
+```
+Unzip the folder using 
+```
+tar -xf ORCA2_ICE_v5.0.0.tar.gz
+tar -xf ORCA2_INPUTS_PISCES_v5.0.0.tar.gz
+```
 
 ### 2. Compiling instructions
 
