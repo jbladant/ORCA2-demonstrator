@@ -7,5 +7,8 @@ To create the domain file for the ORCA2L75 configuration, DOMAINcfg tool require
 As the horizontal grid is shared with the ORCA2 reference configuration, latitute and longitude can be retrieved from it.
 Differently, the bathymetry file used here is a modified version of the reference configurantion (check this with Seb).
 
-DOMAINcfg tool is compiled with the command
-
+DOMAINcfg tool is compiled in the folder ~/nemo_5.0.1/tools with the command
+```
+./maketools -m ARCH_FILE -j N_PROCS -n DOMAINcfg
+```
+If it does not work, try uploading the architecture environment manually with the command *source* ~/nemo_5.0.1/arch/your_architecture.env
