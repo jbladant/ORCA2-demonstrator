@@ -52,10 +52,26 @@ ln -s $WORK/PALEORCA2_demonstrator_forcings/PALEORCA2_bathy_meter.nc bathy_meter
 ln -s $WORK/PALEORCA2_demonstrator_forcings/PALEORCA2_namelist_cfg_dom namelist_cfg
 ```
 
-The configuration namelist provided is already populated with the appropriate information but in the following are reviewed the major changes that have been made.
+The configuration namelist provided is already populated with the appropriate information.
+The major changes from the reference namelist (namelist_ref) are as follows:
+- &namrun namelist
+  - the experience name cn_exp has been changed to "domaincfg"
+- &namdom namelist
+  - the nn_msh flag is set to 1 to create the NEMO mesh_mask adapted to this specific bathymetry
+  - ppglam0, ppgphi0, ppe1_deg, ppe2_deg, ppe1_m and ppe2_m are set to 999999.0 because these values are used when jphgr_msh = 1, which is not the case here.
+  - ppdzmin and pphmax are set to 999999.0 because they are not used as ppsur, ppa0 and ppa1 are defined.
+  - ldbletanh is set to .false. and coefficients ppa2, ppkth2 and ppacr2 to 999999. as appropriate for a standard, 31 levels, ORCA2-like grid.
+- &namcfg namelist
+  - cn_cfg = "paleorca"
+
 
 <mark/>!---------------------------------------------  <mark/>  
 <mark/>&namrun        !   parameters of the run  <mark/>  
 <mark/>!---------------------------------------------  <mark/>  
-<mark/>  cn_exp      =  "domaincfg"  !  experience name  <mark/>  
+<mark/>cn_exp      =  "domaincfg"  !  experience name  <mark/>  
+
+<mark/>!---------------------------------------------  <mark/>  
+<mark/>&namdom        !   space and time domain (bathymetry, mesh, timestep) <mark/>  
+<mark/>!---------------------------------------------  <mark/>  
+<mark/>nn_msh      =    1      !  create (=1) a mesh file or not (=0) <mark/>  
 
