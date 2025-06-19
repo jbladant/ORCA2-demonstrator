@@ -35,7 +35,7 @@ ncap2 -O --ftn -s "/* create strait shlat: */ ; strait_shlat=array(-1.,0.,glamt)
 ```
 The final domain file is domain_cfg_ORCA2L75.nc. 
 
-### Prepare initial conditions and forcing files
+### Interpolate initial conditions and forcing files
 
 
 
