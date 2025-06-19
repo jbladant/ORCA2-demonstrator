@@ -120,16 +120,3 @@ cp -r EXP00 EXPTEST
 cd EXPTEST
 ```
 
-
-
-
-<mark/>!---------------------------------------------  <mark/>  
-<mark/>&namrun        !   parameters of the run  <mark/>  
-<mark/>!---------------------------------------------  <mark/>  
-<mark/>cn_exp      =  "domaincfg"  !  experience name  <mark/>  
-
-<mark/>!---------------------------------------------  <mark/>  
-<mark/>&namdom        !   space and time domain (bathymetry, mesh, timestep) <mark/>  
-<mark/>!---------------------------------------------  <mark/>  
-<mark/>nn_msh      =    1      !  create (=1) a mesh file or not (=0) <mark/>  
-
