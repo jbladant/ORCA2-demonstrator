@@ -1,7 +1,13 @@
 Blurp? NEMO v5.0.1
 
+# Contents
+- [1. System prerequisites](#prerequisites)
+- [2. Input files](#inputs)
+- [3. Compiling XIOS and NEMO](#xiosnemo)
+- [4. Running NEMO](#runnemo)
+- [5. Look at outputs](#outputs)
 
-# 1. System prerequisites
+# <a name="prerequisites"></a> 1. System prerequisites
 
 - NetCDF package installed on your HPC
 - An arch file specific to your HPC to specify XIOS and NetCDF paths as well as compiling options
@@ -10,7 +16,7 @@ Blurp? NEMO v5.0.1
 Note that the full path to your HPC work directory will be referred to as `$WORK` in this tutorial.
 
 Other info here: "Glossary", relevant links, ...?
-TOC
+
 
 basic info..? 
 make changes: keys, what else
@@ -18,13 +24,13 @@ compile nemo ./makenemo
 collect files 
 run nemo 
 
-Tips: monitor (qstat, time.step, ocean.output, e/o files if not running at all)
+
 View outputs... 
 
 
 ____
 
-# 2. Input files
+# 2. <a name="inputs"></a> Input files
 The input files for the ORCA2_ICE_PISCES configuration are provided through JASMIN [on this webpage](https://gws-access.jasmin.ac.uk/public/nemo/sette_inputs/). Download `ORCA2_ICE_v5.0.0.tar.gz` and `ORCA2_INPUTS_PISCES_v5.0.0.tar.gz`. 
 
 These files need to be on the HPC where NEMO is run. There are multiple ways to achieve this: 
@@ -53,7 +59,7 @@ tar -xf ORCA2_INPUTS_PISCES_v5.0.0.tar.gz
 
 ___
 
-# 3. Compiling XIOS and NEMO
+# <a name="xiosnemo"></a> 3. Compiling XIOS and NEMO
 ## 3.1 XIOS
 NEMO uses the external library XIOS for creating outputs. It allows a lot of flexibility in the choice of the output variables and output frequencies (amongst other things). XIOS needs to be compiled prior to compiling NEMO. This tutorial uses <mark>XIOS-2.5</mark>.
 
@@ -72,22 +78,32 @@ cd back to `$WORK` when the compilation is finished.
 
 
 ## 3.2 NEMO
-Now you download and compile NEMO. 
+Now you download and compile NEMO. In this tutorial we use [NEMO <mark>v5.0.1</mark>](https://forge.nemo-ocean.eu/nemo/nemo/-/releases/5.0.1)
 
 Download the NEMO source code in `$WORK`:
 ```
-git clone --branch 5.0.1 https://forge.nemo-ocean.eu/nemo/nemo.git your_NEMO_dirname
+git clone --branch 5.0.1 https://forge.nemo-ocean.eu/nemo/nemo.git your_NEMO_dir
 cd your_NEMO_dirname
 ```
 For an explanation of the folder structure in `your_NEMO_dirname`, see [this section](https://sites.nemo-ocean.io/user-guide/install.html#description-of-main-nemo-directories) of the NEMO user guide.
 
-As for XIOS, NEMO requires arch files specific to your HPC. See [NEMO user guide](https://sites.nemo-ocean.io/user-guide/install.html#download-and-install-the-nemo-code) for instructions on setting up the arch files. 
+As for XIOS, NEMO requires arch files specific to your HPC. See [NEMO user guide](https://sites.nemo-ocean.io/user-guide/install.html#download-and-install-the-nemo-code) for instructions on setting up the arch files. <mark> Equivalent for Irene</mark>
 
+In `$WORK/your_NEMO_dir`, run the following:
 
+```
+./makenemo -r ORCA2_ICE_PISCES -n your_config_name -m EXAB
+```
+`-r` defines the reference configuration found in `your_NEMO_dir/cfgs/, `-n` is the name you want to give your configuration, and `-m` defines the machine architecture, i.e. the file in `arch/` specific to your HPC. 
 
+**Note** You may have to `module load` additional modules for the compilation to succeed, but this is dependent on your HPC. 
 
 ___ 
-# Running ORCA2_ICE_PISCES
+# <a name="runnemo"></a> 4. Running ORCA2_ICE_PISCES
 
 Collect all files
+Run
+Tips: monitor (qstat, time.step, ocean.output, e/o files if not running at all)
 
+___
+# <a name="outputs"></a> 5. View outputs
