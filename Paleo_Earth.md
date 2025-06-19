@@ -29,7 +29,7 @@ You should now have a folder PALEORCA2_demonstrator_forcings/ with all the neces
 
 ### 3.0 Compiling XIOS and NEMO
 
-Please refer to [**Running ORCA2_ICE_PISCES**]() and use "PALEORCA2" as configuration name (option -n) when compiling NEMO.
+Please refer to [**Running ORCA2_ICE_PISCES**](https://github.com/jbladant/ORCA2-demonstrator/blob/main/Running%20ORCA2_ICE_PISCES.md) and use "PALEORCA2" as configuration name (option -n) when compiling NEMO.
 
 ### 3.1 Create the new DOMAIN
 
@@ -109,7 +109,17 @@ The same can be done on the mesh_mask.nc file.
 You are now ready to run a NEMO simulation of the Early Eocene. 
 Edit: for now, the tutorial does not include PISCES or TOP, for simplicity. It will be updated later.
 
-Go the the PALEORCA2 folder that has been created as part of the compilation step.
+Go the the PALEORCA2 folder that has been created as part of the compilation step:
+```
+cd $WORK/your_NEMO_dirname/cfgs/PALEORCA2
+```
+
+Copy the reference experiment EXP00 to your preferred experiment name (EXPTEST for the purpose of this tutorial) and cd there:
+```
+cp -r EXP00 EXPTEST
+cd EXPTEST
+```
+
 
 
 
