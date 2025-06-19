@@ -5,7 +5,7 @@ The tutorial relies on DOMAINcfg tool (NEMO version 5) and [**SOSIE interpolator
 ### Build the domain file
 To create the domain file for the ORCA2L75 configuration, DOMAINcfg tool requires as input the coordinates and bathymetry of the new configuration. 
 As the horizontal grid is shared with the ORCA2 reference configuration, latitute and longitude can be retrieved from it.
-Differently, the bathymetry file used here is a modified version of the reference configurantion (check this with Seb).
+Differently, the bathymetry file used here is a modified version of the reference configurantion. Changes have been made in the shallower regions to take advantage of the improved vertical resolution.
 
 DOMAINcfg tool is compiled in the folder ~/nemo_5.0.1/tools with the command
 ```
@@ -36,6 +36,12 @@ ncap2 -O --ftn -s "/* create strait shlat: */ ; strait_shlat=array(-1.,0.,glamt)
 The final domain file is domain_cfg_ORCA2L75.nc. 
 
 ### Interpolate initial conditions and forcing files
+Three-dimensional files provided for the ORCA2_ICE reference configuration (https://gws-access.jasmin.ac.uk/public/nemo/sette_inputs/) must be interpolated.
+The used tool is Sosie, which enables the interpolation between ORCA grids. An example of the namelist used for interpolating the initial salinity is provided in *namelists/namelist.sosie.salinity*.
+The fields that requires interpolation are initial potential temperature and salinity, 3D eddy viscosity, monthly reference salinity, and restoring.
+Since it does not comply the sosie requirements, the initial potential temperature file needs some manipulation before being interpolated. 
+The strainghforward way to solve the problem is to extract the variable from the netcdf file and add it to the initial salinity file.
 
+### Modifications of the NEMO namelist for ORCA2L75
 
 
