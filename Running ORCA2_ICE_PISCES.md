@@ -3,7 +3,7 @@ Blurp? NEMO v5.0.1
 
 ## 1. System prerequisites
 
-- NetCDF package installed on your HPC
+- ==NetCDF package installed on your HPC==
 - An arch file specific to your HPC to specify XIOS and NetCDF paths as well as compiling options
 - Python or your preferred analysis software used for visualizing the outputs
 
