@@ -4,15 +4,15 @@ The ORCA2 demonstrator is a use case for the NEMO ocean model based on the defau
 
 #### The default ORCA2_ICE_PISCES
 
-[How to run ORCA_ICE_PISCES](https://github.com/jbladant/ORCA2-demonstrator/blob/main/Running%20ORCA2_ICE_PISCES.md) describes the steps necessary for compiling and running the default ORCA2_ICE_PISCES configuration. This is the prerequisite for making the adjustment described in the following. 
+[The reference configuration tutorial](https://github.com/jbladant/ORCA2-demonstrator/blob/main/Running%20ORCA2_ICE_PISCES.md) describes the steps necessary for compiling and running the default ORCA2_ICE_PISCES configuration. This is the prerequisite for making the adjustment described in the following. 
 
 <!-- #### Making adjustments for different levels of experience with NEMO -->
 #### Customizations
-[How to add new variables to the outputs](https://github.com/jbladant/ORCA2-demonstrator/blob/main/Add%20new%20outputs.md) enables to expand the output fields and to change their frequency by modificationa of the xml files. An example is provided with the depth of the minimum oxygen cocentration.
+[Adding output variables](https://github.com/jbladant/ORCA2-demonstrator/blob/main/Add%20new%20outputs.md) enables to expand the output fields and to change their frequency by modifying the xml files. An example is provided with the depth of the minimum oxygen cocentration.
 
-[How to change the vertical resolution in ORCA2](https://github.com/jbladant/ORCA2-demonstrator/blob/main/ORCA2L75_configuration.md) documents the steps for increasing the number of levels from 31 levels (default) to 75 levels by using the DOMAINcfg tool and provides tips for interpolating ORCA2_ICE reference configuration input fields.
+[Changing ORCA2 vertical resolution](https://github.com/jbladant/ORCA2-demonstrator/blob/main/ORCA2L75_configuration.md) documents the steps for increasing the number of levels from 31 levels (default) to 75 levels by using the DOMAINcfg tool and provides tips for interpolating ORCA2_ICE reference configuration input fields.
 
-[How to create a Paleo Earth set-up for the early Eocene](https://github.com/jbladant/ORCA2-demonstrator/blob/main/Paleo_Earth.md) includes changes in location of continents, rotating the tripolar grid, and changing bathymetry.
+[The Paleo Earth set-up for the early Eocene](https://github.com/jbladant/ORCA2-demonstrator/blob/main/Paleo_Earth.md) includes changes in location of continents, rotating the tripolar grid, and changing bathymetry.
 
 This demonstrator is a contribution to the NEMO Zoo hackathon 2025. 
 
