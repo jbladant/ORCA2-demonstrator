@@ -132,6 +132,7 @@ In EXPTEST are present:
 - field_def and file_def xml files for handling inputs/outputs. See [**here**](https://github.com/jbladant/ORCA2-demonstrator/blob/main/Add%20new%20outputs.md) to for an example on how to add new outputs.
 - reference and standard configuration namelists. The configuration namelists will be overwritten by those provided in the PALEORCA2_demonstrator_forcings folder.
 - Other xml files required to XIOS and a link to the nemo executable.
+- Depending on you HPC, you may need to copy the XIOS executable to EXPTEST.
 
 Now is the time to copy (or ln -s) the forcing and namelist files located in the PALEORCA2_demonstrator_forcings folder.
 Let's start with I/O and namelist files.
@@ -167,3 +168,10 @@ ln -fs $WORK/your_NEMO_dirname/cfgs/SHARED/namelist_trc_ref namelist_trc_ref
 ```
 
 Should you have the necessary forcing files for PISCES, simply add them to the EXPTEST folder as other forcings and set the ln_top flag to true to re-activate the biogeochemistry.
+
+You now have everything to run the simulation.
+Depending on your local HPC, building the main batch job may differ. Ask friends or look into the HPC documentation on how to do this.
+
+### After the run
+
+To be edited...
