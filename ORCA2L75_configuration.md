@@ -3,11 +3,20 @@
 This how-to page describes how to build an ORCA2-based configuration with a different number of vertical levels.
 Here, we build a 75 levels configuration, hereafter called ORCA2L75 configuration.
 The tutorial relies on the DOMAINcfg tool from NEMOv5 and [*SOSIE interpolator*](https://github.com/brodeau/sosie).
+It requires to copy the tarball ORCA2L75_domaincfg_forcings.tar.gz to your HPC and extract its content:
+```
+scp ORCA2L75_domaincfg_forcings.tar.gz $WORK
+(after logging into your HPC)
+cd $WORK
+gunzip ORCA2L75_domaincfg_forcings.tar.gz
+tar -xvf ORCA2L75_domaincfg_forcings.tar
+```
+A folder named ORCA2L75_domaincfg_forcings should now be present in your $WORK.
 
 ### Build the domain file
 To create the domain file for the ORCA2L75 configuration, DOMAINcfg tool requires as input the coordinates and bathymetry of the new configuration. 
 As the horizontal grid is shared with the ORCA2 reference configuration, latitute and longitude (i.e. nav_lat, nav_lon) can be retrieved from its I/O files.
-Differently, the bathymetry file used here is a modified version of the reference configurantion. Changes have been made in the shallower regions to take advantage of the improved vertical resolution.
+Differently, the bathymetry file used here is a modified version of the reference configurantion. Changes have been made in the shallower regions to take advantage of the improved vertical resolution. The coordinates.nc and bathy_meter.nc files used are provided in the ORCA2L75_domaincfg_forcings folder.
 
 DOMAINcfg tool is compiled in the folder ~/nemo_5.0.1/tools with the command
 ```
