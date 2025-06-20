@@ -4,28 +4,40 @@ The variables that *could* be output are listed in `EXP00/field_def_nemo-XXX.xml
 
 The variables that *are* output are defined in `EXP00/file_def_nemo-XXX.xml`. 
 
-__
+* [Contents of `field_def` and `file_def`](#field_and_file)
+* [How to add a new variable](#add_variable)
+* [Tips](#tips)
 
-## Contents of `field_def` and `file_def`
+## <a name="field_and_file"></a> Contents of `field_def` and `file_def`
 
 find XIOS documentation
 __
 
-## How to add a new variable 
+## <a name="add_variable"></a> How to add a new variable 
 
 ### Output variables that exist in `field_def`
+As an example, we can add the depth of the minimum oxygen concentration across the water column. This variable can be found in `field_def_nemo-pisces.xml` under `ZO2MIN`. 
+```
+<field id="ZO2MIN"    long_name="Depth of oxygen minimum concentration"    unit="m"    />
+```
+To output it during the model run, add it to `file_def_nemo-pisces.xml`. For example, to output `ZO2MIN` with a monthly frequency, find the file group that defines this:
+```
+<file_group id="trc_1m" output_freq="1mo" output_level="10" enabled=".TRUE."> <!-- real monthly files -->
+```
+and add a line
+```
+<field field_ref="ZO2MIN"    name="ZO2MIN"   operation="average" freq_op="1mo" > </field>
+```
+If you now rerun the NEMO executable, you should find the `ZO2MIN` variable in `ORCA2_1m_00010101_00021231_ptrc_T.nc`. 
 
-
-#### Example: Output the depth of the minimum oxygen across the water column 
-To output the minimum oxygen depth (`ZO2MIN`) modify 
 
 ### New diagnostics
 If the variable you want to output is not 
 
 Note: Need to recompile 
 
-___
-## Tips
+
+## <a name="tips"></a>Tips
 
 If there's an error, the model may run but blow up at the end. 
 
