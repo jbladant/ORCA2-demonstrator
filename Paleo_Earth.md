@@ -4,8 +4,14 @@ This tutorial allows you to run an Early Eocene (~ 55 Ma) NEMO simulation.
 The bathymetry follows that provided by the model intercomparison project focusing on the Early Eocene ([**DeepMIP**](https://www.deepmip.org/deepmip-eocene/)). Details about the boundary conditions can be found [**here**](https://gmd.copernicus.org/articles/10/889/2017/) and the first results of this exercise are documented [**here**](https://cp.copernicus.org/articles/17/203/2021/cp-17-203-2021.html).
 This training guide is based on a modified global ORCA2 grid with displaced poles to accommodate the different global land/sea mask. The nominal resolution is 2° with enhancement in the equatorial band up to 0.5° resolution.
 
+* [Files provided](#files_provided)
+* [Paleoclimate instructions](#paleo_instructions)
+  * [Compiling XIOS and NEMO](#comp_xios_nemo)
+  * [Create the new DOMAIN](#create_dom)
+  * [Run a PALEORCA2 simulation of the Early Eocene](#run_paleo_simu)
+* [After the run](#after_run)
 
-## 2. Files provided
+## <a name="files_provided"></a> 2. Files provided
 
 All of the boundary conditions files, adapted for the Early Eocene when necessary, are provided in the Zenodo repository.
 All namelists needed to run the model are also provided.
@@ -24,13 +30,13 @@ tar -xvf PALEORCA2_demonstrator_forcings.tar
 You should now have a folder $WORK/PALEORCA2_demonstrator_forcings/ containing all the necessary files to run the demonstrator.
 
 
-## 3. Paleoclimate instructions
+## <a name="paleo_instructions"></a> 3. Paleoclimate instructions
 
-### 3.0 Compiling XIOS and NEMO
+### <a name="comp_xios_nemo"></a> 3.0 Compiling XIOS and NEMO
 
 Please refer to [**Running ORCA2_ICE_PISCES**](https://github.com/jbladant/ORCA2-demonstrator/blob/main/Running%20ORCA2_ICE_PISCES.md) and use "PALEORCA2" as configuration name (option -n) when compiling NEMO.
 
-### 3.1 Create the new DOMAIN
+### <a name="create_dom"></a> 3.1 Create the new DOMAIN
 
 First, you need to compile the DOMAINcfg tool located in $WORK/your_NEMO_dirname/tools.
 To do this, follow the same logic as for compiling NEMO (notably using the same arch files) and execute the maketools command.
@@ -110,7 +116,7 @@ ncatted -O -a Iperio,global,c,l,1 \
 ```
 The same can be done for the mesh_mask.nc file.
 
-### Run a PALEORCA2 simulation of the Early Eocene
+### <a name="run_paleo_simu"></a> 3.2 Run a PALEORCA2 simulation of the Early Eocene
 
 You are now ready to run a NEMO simulation of the Early Eocene. 
 This tutorial does not include PISCES or TOP since Early Eocene surface and bathymetric forcings for PISCES do not yet exist; however, the namelist and xml files required to run with TOP/PISCES are included.
@@ -171,6 +177,6 @@ Should you have the necessary forcing files for PISCES, simply add them to the E
 You now have everything to run the simulation.
 Depending on your local HPC, building the main batch job may differ. Ask friends or look into the HPC documentation on how to do this.
 
-### After the run
+## <a name="after_run"></a> 4. After the run
 
 To be edited...
