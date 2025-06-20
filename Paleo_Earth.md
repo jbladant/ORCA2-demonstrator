@@ -127,5 +127,40 @@ cp -r EXP00 EXPTEST
 cd EXPTEST
 ```
 
-In EXPTEST are present xml files for handling inputs/outputs. See [**here**](https://github.com/jbladant/ORCA2-demonstrator/blob/main/Add%20new%20outputs.md) to for an example on how to add new outputs.
+In EXPTEST are present:
+- field_def and file_def xml files for handling inputs/outputs. See [**here**](https://github.com/jbladant/ORCA2-demonstrator/blob/main/Add%20new%20outputs.md) to for an example on how to add new outputs.
+- reference and standard configuration namelists. The configuration namelists will be overwritten by those provided in the PALEORCA2_demonstrator_forcings folder.
+- Other xml files required to XIOS and a link to the nemo executable.
+
 Now is the time to copy (or ln -s) the forcing and namelist files located in the PALEORCA2_demonstrator_forcings folder.
+Let's start with I/O and namelist files.
+```
+ln -fs $WORK/PALEORCA2_demonstrator_forcings/PALEORCA2_namelist_clim_cfg namelist_cfg
+ln -fs $WORK/PALEORCA2_demonstrator_forcings/PALEORCA2_file_def_nemo-oce.xml file_def_nemo-oce.xml
+ln -fs $WORK/PALEORCA2_demonstrator_forcings/PALEORCA2_file_def_nemo-ice.xml file_def_nemo-ice.xml
+ln -fs $WORK/PALEORCA2_demonstrator_forcings/PALEORCA2_namelist_top_cfg namelist_top_cfg
+ln -fs $WORK/PALEORCA2_demonstrator_forcings/PALEORCA2_namelist_pisces_cfg namelist_pisces_cfg
+ln -fs $WORK/PALEORCA2_demonstrator_forcings/PALEORCA2_namelist_trc_cfg namelist_trc_cfg
+ln -fs $WORK/PALEORCA2_demonstrator_forcings/PALEORCA2_file_def_nemo-pisces.xml file_def_nemo-pisces.xml
+```
+
+Now add the modified boundary conditions (domain_cfg, internal wave-driven mixing, eddy viscosity, geothermal heating, ...), surface forcing from the atmosphere and initial conditions:
+```
+ln -s $WORK/PALEORCA2_demonstrator_forcings/DOMAIN_PALEORCA2/PALEORCA2_domain_cfg.nc domain_cfg.nc
+ln -s $WORK/PALEORCA2_demonstrator_forcings/PALEORCA2_HF_atm_forcing.nc HF_atm_forcing.nc
+ln -s $WORK/PALEORCA2_demonstrator_forcings/PALEORCA2_1D_atm_forcing.nc 1D_atm_forcing.nc
+ln -s $WORK/PALEORCA2_demonstrator_forcings/PALEORCA2_1M_atm_forcing.nc 1M_atm_forcing.nc
+ln -s $WORK/PALEORCA2_demonstrator_forcings/PALEORCA2_weights_LMD9695_paleorca2_bilin.nc weights_bilinear.nc
+ln -s $WORK/PALEORCA2_demonstrator_forcings/PALEORCA2_weights_LMD9695_paleorca2_bicub.nc weights_bicubic.nc
+ln -s $WORK/PALEORCA2_demonstrator_forcings/PALEORCA2_subbasins.nc subbasins.nc
+ln -s $WORK/PALEORCA2_demonstrator_forcings/PALEORCA2_zdfiwm_forcing.nc zdfiwm_forcing.nc
+ln -s $WORK/PALEORCA2_demonstrator_forcings/PALEORCA2_geothermal_heating.nc geothermal_heating.nc
+ln -s $WORK/PALEORCA2_demonstrator_forcings/PALEORCA2_eddy_viscosity_3D.nc eddy_viscosity_3D.nc
+ln -s $WORK/PALEORCA2_demonstrator_forcings/PALEORCA2_oce_forcing_and_istate.nc 1M_oce_forcing_and_istate.nc
+ln -s $WORK/PALEORCA2_demonstrator_forcings/PALEORCA2_sali_ref_clim_monthly.nc sali_ref_clim_monthly.nc
+```
+
+Finally, link the namelist_trc_ref from the cfgs/SHARED folder because this is not done by default. This can be useful if you need to run PISCES or other passive tracers in NEMO. The configuration namelist for tracers is provided in the PALEORCA2_demonstrator_forcings folder.
+```
+ln -fs $WORK/your_NEMO_dirname/cfgs/SHARED/namelist_trc_ref namelist_trc_ref
+```
