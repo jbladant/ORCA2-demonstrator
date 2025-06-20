@@ -114,7 +114,8 @@ The same can be done for the mesh_mask.nc file.
 ### Run a PALEORCA2 simulation of the Early Eocene
 
 You are now ready to run a NEMO simulation of the Early Eocene. 
-Edit: for now, the tutorial does not include PISCES or TOP, for simplicity. It will be updated later.
+Edit: for now, the tutorial does not include PISCES or TOP because Early Eocene surface and bathymetric forcings for PISCES do not yet exist; however, the namelist and xml files required to run with TOP/PISCES are included.
+Essentially, this is done by setting the flag ln_top to false in namelist_cfg (see below).
 
 Go the the PALEORCA2 folder that has been created as part of the compilation step:
 ```
@@ -164,3 +165,5 @@ Finally, link the namelist_trc_ref from the cfgs/SHARED folder because this is n
 ```
 ln -fs $WORK/your_NEMO_dirname/cfgs/SHARED/namelist_trc_ref namelist_trc_ref
 ```
+
+Should you have the necessary forcing files for PISCES, simply add them to the EXPTEST folder as other forcings and set the ln_top flag to true to re-activate the biogeochemistry.
