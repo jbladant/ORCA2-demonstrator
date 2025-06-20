@@ -1,15 +1,14 @@
 # Tutorial for creating Paleo Earth
 
 This tutorial allows you to run an Early Eocene (~ 55 Ma) NEMO simulation.
-The bathymetry follows that provided by the model intercomparison project focussing on the Early Eocene ([**DeepMIP**](https://www.deepmip.org/deepmip-eocene/)). Details about the boundary conditions can be found [**here**](https://gmd.copernicus.org/articles/10/889/2017/) and the first results of this exercise are documented [**here**](https://cp.copernicus.org/articles/17/203/2021/cp-17-203-2021.html).
-This training guide is based on a modified global ORCA2 grid with displaced poles to accommodate the different global land/sea mask. The nominal resolution is 2° with enhancement in the equatorial band up to 0.5° resolution at the equator).
+The bathymetry follows that provided by the model intercomparison project focusing on the Early Eocene ([**DeepMIP**](https://www.deepmip.org/deepmip-eocene/)). Details about the boundary conditions can be found [**here**](https://gmd.copernicus.org/articles/10/889/2017/) and the first results of this exercise are documented [**here**](https://cp.copernicus.org/articles/17/203/2021/cp-17-203-2021.html).
+This training guide is based on a modified global ORCA2 grid with displaced poles to accommodate the different global land/sea mask. The nominal resolution is 2° with enhancement in the equatorial band up to 0.5° resolution.
 
 
 ## 2. Files provided
 
-All of the boundary conditions files, adapted for the Early Eocene when necessary, are provided.
-All necessary namelists to run the model are provided.
-(if time allows it) Modified sources (to run with PISCES adapted for the paleo) are provided.
+All of the boundary conditions files, adapted for the Early Eocene when necessary, are provided in the Zenodo repository.
+All necessary namelists needed to run the model are also provided.
 
 These files are archived in PALEORCA2_demonstrator_forcings.tar.gz.
 Copy this zipped tarball to your HPC and extract the content
@@ -22,7 +21,7 @@ gunzip PALEORCA2_demonstrator_forcings.tar.gz
 tar -xvf PALEORCA2_demonstrator_forcings.tar
 ```
 
-You should now have a folder PALEORCA2_demonstrator_forcings/ with all the necessary files to run the demonstrator in your $WORK.
+You should now have a folder ~/PALEORCA2_demonstrator_forcings/ containing all the necessary files to run the demonstrator in your $WORK.
 
 
 ## 3. Paleoclimate instructions
