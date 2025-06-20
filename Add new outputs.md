@@ -32,9 +32,17 @@ If you now rerun the NEMO executable, you should find the `ZO2MIN` variable in `
 
 
 ### New diagnostics
-If the variable you want to output is not 
-
-Note: Need to recompile 
+If the variable you want to output is not in `field_def`, you need to add it in both `field_def` and `file_def` as described above. For example, `field_def_nemo-oce.xml` contains sea surface temperature (`sst`) and its square (`sst2`)
+```
+<field id="sst"    long_name="Bulk sea surface temperature"    standard_name="bulk_sea_surface_temperature"        unit="degC"    />
+<field id="sst2"    long_name="square of sea surface temperature"  standard_name="square_of_sea_surface_temperature"   unit="degC2"     > sst * sst </field >
+```
+You can add the cube of sea surface temperature as 
+```
+<field id="sst3"    long_name="cube of sea surface temperature"  standard_name="cube_of_sea_surface_temperature"   unit="degC3"     > sst * sst * sst </field >
+```
+ 
+**Note** When adding variables to `field_def` you will have to recompile NEMO.
 
 
 ## <a name="tips"></a>Tips
