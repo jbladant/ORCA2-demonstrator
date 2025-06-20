@@ -127,3 +127,5 @@ cp -r EXP00 EXPTEST
 cd EXPTEST
 ```
 
+In EXPTEST are present xml files for handling inputs/outputs. See [**here**](https://github.com/jbladant/ORCA2-demonstrator/blob/main/Add%20new%20outputs.md) to for an example on how to add new outputs.
+Now is the time to copy (or ln -s) the forcing and namelist files located in the PALEORCA2_demonstrator_forcings folder.
