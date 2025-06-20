@@ -8,7 +8,7 @@ This training guide is based on a modified global ORCA2 grid with displaced pole
 ## 2. Files provided
 
 All of the boundary conditions files, adapted for the Early Eocene when necessary, are provided in the Zenodo repository.
-All necessary namelists needed to run the model are also provided.
+All namelists needed to run the model are also provided.
 
 These files are archived in PALEORCA2_demonstrator_forcings.tar.gz.
 Copy this zipped tarball to your HPC and extract the content
@@ -32,8 +32,8 @@ Please refer to [**Running ORCA2_ICE_PISCES**](https://github.com/jbladant/ORCA2
 
 ### 3.1 Create the new DOMAIN
 
-First, you need to compile the DOMAINcfg tool located in $WORK/your_NEMO_dirname/tools
-To do this, you need to follow the same logic than for compiling NEMO (notably use the same arch files) and execute the maketools command.
+First, you need to compile the DOMAINcfg tool located in $WORK/your_NEMO_dirname/tools.
+To do this, follow the same logic as for compiling NEMO (notably using the same arch files) and execute the maketools command.
 Using the Irene supercomputer as an example (thus the arch files would be X64_IRENE.fcm, X64_IRENE.env and X64_IRENE.path), do the following:
 ```
 cd $WORK/your_NEMO_dirname/tools
@@ -48,14 +48,14 @@ mdkir DOMAIN_PALEORCA2
 cd DOMAIN_PALEORCA2
 ```
 
-Then link the reference namelist and executables from the $WORK/your_NEMO_dirname/tools/DOMAINcfg into your DOMAIN_PALEORCA2 folder:
+Then, link the reference namelist and executables from the $WORK/your_NEMO_dirname/tools/DOMAINcfg into your DOMAIN_PALEORCA2 folder:
 ```
 ln -s $WORK/your_NEMO_dirname/tools/DOMAINcfg/BLD/bin/make_domain_cfg.exe .
 ln -s $WORK/your_NEMO_dirname/tools/DOMAINcfg/BLD/bin/dom_doc.exe .
 ln -s $WORK/your_NEMO_dirname/tools/DOMAINcfg/namelist_ref . 
 ```
 
-From the PALEORCA2_demonstrator_forcings folder, link files specific for the paleo (Early Eocene) configuration:
+From the PALEORCA2_demonstrator_forcings folder, link the files specific for the paleo (Early Eocene) configuration:
 ```
 ln -s $WORK/PALEORCA2_demonstrator_forcings/PALEORCA2_coordinates.nc coordinates.nc
 ln -s $WORK/PALEORCA2_demonstrator_forcings/PALEORCA2_bathy_meter.nc bathy_meter.nc
@@ -63,7 +63,7 @@ ln -s $WORK/PALEORCA2_demonstrator_forcings/PALEORCA2_namelist_cfg_dom namelist_
 ```
 
 The configuration namelist provided is already populated with the appropriate information.
-The major changes from the reference namelist (namelist_ref) are as follows:
+The major changes from the reference namelist (namelist_ref) are the following:
 - &namrun namelist
   - the experience name cn_exp has been changed to "domaincfg"
 - &namdom namelist
@@ -80,7 +80,7 @@ The major changes from the reference namelist (namelist_ref) are as follows:
 - &namlbc namelist
   - rn_shlat = 2 => This is to be consistent with what is set for the dynamics later but really, it does not seem to matter really here.
  
-Then execute make_domain_cfg.exe and dom_doc.exe (the latter adding the namelist_cfg to the domain_cfg.nc file as a variable, for tracability):
+Then, execute make_domain_cfg.exe and dom_doc.exe (the latter adding the namelist_cfg to the domain_cfg.nc file as a variable, for tracability):
 ```
 ./make_domain_cfg.exe
 ./dom_doc.exe
@@ -113,7 +113,7 @@ The same can be done for the mesh_mask.nc file.
 ### Run a PALEORCA2 simulation of the Early Eocene
 
 You are now ready to run a NEMO simulation of the Early Eocene. 
-Edit: for now, the tutorial does not include PISCES or TOP because Early Eocene surface and bathymetric forcings for PISCES do not yet exist; however, the namelist and xml files required to run with TOP/PISCES are included.
+This tutorial does not include PISCES or TOP since Early Eocene surface and bathymetric forcings for PISCES do not yet exist; however, the namelist and xml files required to run with TOP/PISCES are included.
 Essentially, this is done by setting the flag ln_top to false in namelist_cfg (see below).
 
 Go the the PALEORCA2 folder that has been created as part of the compilation step:
