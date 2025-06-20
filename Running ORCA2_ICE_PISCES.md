@@ -67,7 +67,7 @@ Now you download and compile NEMO. In this tutorial we use [NEMO <mark>v5.0.1</m
 
 Download the NEMO source code in `$WORK`:
 ```
-git clone --branch 5.0.1 https://forge.nemo-ocean.eu/nemo/nemo.git your_NEMO_dir
+git clone --branch 5.0.1 https://forge.nemo-ocean.eu/nemo/nemo.git your_NEMO_dirname
 cd your_NEMO_dirname
 ```
 For an explanation of the folder structure in `your_NEMO_dirname`, see [this section](https://sites.nemo-ocean.io/user-guide/install.html#description-of-main-nemo-directories) of the NEMO user guide.
@@ -79,11 +79,11 @@ In `$WORK/your_NEMO_dir`, run the following:
 ```
 ./makenemo -r ORCA2_ICE_PISCES -n your_config_name -m X64_IRENE
 ```
-`-r` defines the reference configuration found in `your_NEMO_dir/cfgs/`. `-n` is the name you want to give your configuration. `-m` defines the machine architecture, i.e. the file in `arch/` specific to your HPC, which in this example is the Irene HPC again.
+`-r` defines the reference configuration found in `your_NEMO_dirname/cfgs/`. `-n` is the name you want to give your configuration. `-m` defines the machine architecture, i.e. the file in `arch/` specific to your HPC, which in this example is the Irene HPC again.
 
 **Note** You may have to `module load` additional modules for the compilation to succeed, but this is dependent on your HPC. 
 
-If the compilation of NEMO was successful, there will be a new directory `your_NEMO_dir/cfgs/your_config_name/`. Inside this directory in `BLD/bin/`, there will be a file named `nemo.exe` which is the executable to run your NEMO configuration. 
+If the compilation of NEMO was successful, there will be a new directory `your_NEMO_dirname/cfgs/your_config_name/`. Inside this directory in `BLD/bin/`, there will be a file named `nemo.exe` which is the executable to run your NEMO configuration. 
 
 ___ 
 # <a name="runnemo"></a> 4. Running ORCA2_ICE_PISCES
@@ -104,7 +104,7 @@ You run your NEMO configuration by submitting a job to your HPC. The precise pro
 #PBS -l walltime=00:30:00
 #
 #PBS -e nemo_err.out 
-cd $WORK/your_NEMO/dir/cfgs/your_config_name/EXP00
+cd $WORK/your_NEMO_dirname/cfgs/your_config_name/EXP00
 mpiexec  --np 64 --ppn 64 ./nemo.exe : --np 8 --ppn 8 ./xios.exe
 ```
 and submitting it by running
