@@ -13,14 +13,6 @@
 
 Note that the full path to your HPC work directory will be referred to as `$WORK` in this tutorial.
 
-<mark>Other info here: "Glossary", relevant links, ...?
-
-basic info what is in namelist? Or better a link to the user-guide
-Keys?
-
-View outputs... 
-
-</mark>
 ____
 
 # 2. <a name="inputs"></a> Input files
@@ -54,7 +46,7 @@ ___
 
 # <a name="xiosnemo"></a> 3. Compiling XIOS and NEMO
 ##  <a name="XIOScomp"></a>  3.1 XIOS
-NEMO uses the external library XIOS for creating outputs. It allows a lot of flexibility in the choice of the output variables and output frequencies (amongst other things). XIOS needs to be compiled prior to compiling NEMO. This tutorial uses <mark>XIOS-2.5</mark>.
+NEMO uses the external library XIOS for creating outputs. It allows a lot of flexibility in the choice of the output variables and output frequencies (amongst other things). XIOS needs to be compiled prior to compiling NEMO. This tutorial uses <mark>XIOS-2.5</mark>. You can find a user guide and referecen manual for XIOS on [this page](https://forge.ipsl.fr/ioserver).
 
 Connect to your HPC and download XIOS in your work directory:
 ```
@@ -80,7 +72,7 @@ cd your_NEMO_dirname
 ```
 For an explanation of the folder structure in `your_NEMO_dirname`, see [this section](https://sites.nemo-ocean.io/user-guide/install.html#description-of-main-nemo-directories) of the NEMO user guide.
 
-As for XIOS, NEMO requires arch files specific to your HPC. See [NEMO user guide](https://sites.nemo-ocean.io/user-guide/install.html#download-and-install-the-nemo-code) for instructions on setting up the arch files. <mark> Equivalent for Irene</mark>
+As for XIOS, NEMO requires arch files specific to your HPC. See [NEMO user guide](https://sites.nemo-ocean.io/user-guide/install.html#download-and-install-the-nemo-code) for instructions on setting up the arch files.
 
 In `$WORK/your_NEMO_dir`, run the following:
 
@@ -117,16 +109,11 @@ mpiexec  --np 64 --ppn 64 ./nemo.exe : --np 8 --ppn 8 ./xios.exe
 ```
 and submitting it by running
 ```
-qsub zour_bash_script.sh
+qsub your_bash_script.sh
 ```
 You may have to play around with number of processors and walltime so that you ask for reasonable resources and so that NEMO the run does not time out. 
 
-**Tip** If you want to monitor the progress of your run,  
-```
-cat time.step
-```
-will show the current time step of the iteration. The total number of iterations is defined in `namelist_cfg` as `nn_itend`. 
-The submission to the HPC can be monitored using `qstat` or equivalent commands depending on the way you submit jobs to your HPC. 
+**Tip** If you want to monitor the progress of your run, `cat time.step` will show the current time step of the iteration. The total number of iterations is defined in `namelist_cfg` as `nn_itend`. The submission to the HPC can be monitored using `qstat` or equivalent commands depending on the way you submit jobs to your HPC. 
 
 If NEMO runs successfully, there will be a number of output files in netCDF format in `EXP00`, such as `ORCA2_5d_00010101_00021231_grid_T.nc`.
 
@@ -135,8 +122,7 @@ If NEMO runs successfully, there will be a number of output files in netCDF form
 ___
 # <a name="outputs"></a> 5. View outputs
 
-Now you can use your preferred software to vies and analyse the outputs.
+Now you can use your preferred software to vies and analyse the outputs, e.g. python or ncview. 
 
-<mark> Include some pretty results </mark>
 
 
