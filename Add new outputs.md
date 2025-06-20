@@ -10,8 +10,9 @@ The variables that *are* output are defined in `EXP00/file_def_nemo-XXX.xml`.
 
 ## <a name="field_and_file"></a> Contents of `field_def` and `file_def`
 
+<mark> Include screenshots and explain how to read the files </mark>
+
 find XIOS documentation
-__
 
 ## <a name="add_variable"></a> How to add a new variable 
 
@@ -20,16 +21,15 @@ As an example, we can add the depth of the minimum oxygen concentration across t
 ```
 <field id="ZO2MIN"    long_name="Depth of oxygen minimum concentration"    unit="m"    />
 ```
-To output it during the model run, add it to `file_def_nemo-pisces.xml`. For example, to output `ZO2MIN` with a monthly frequency, find the file group that defines this:
+To output it during the model run, add it to `file_def_nemo-pisces.xml`. For example, to output `ZO2MIN` with a monthly frequency, find the respective file group and add the line
 ```
 <file_group id="trc_1m" output_freq="1mo" output_level="10" enabled=".TRUE."> <!-- real monthly files -->
-```
-and add a line
-```
-<field field_ref="ZO2MIN"    name="ZO2MIN"   operation="average" freq_op="1mo" > </field>
+   ...
+   <field field_ref="ZO2MIN"    name="ZO2MIN"   operation="average" freq_op="1mo" > </field>
 ```
 If you now rerun the NEMO executable, you should find the `ZO2MIN` variable in `ORCA2_1m_00010101_00021231_ptrc_T.nc`. 
 
+<mark> Include Image </mark>
 
 ### New diagnostics
 If the variable you want to output is not in `field_def`, you need to add it in both `field_def` and `file_def` as described above. For example, `field_def_nemo-oce.xml` contains sea surface temperature (`sst`) and its square (`sst2`)
