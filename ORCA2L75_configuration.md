@@ -1,21 +1,21 @@
 ## A new ORCA2 reference configuration with 75 vertical levels
 
-This page describes how to build an ORCA2-based configuration with a different number of vertical levels.
-Here, we build a 75 levels configuration, hereafter ORCA2L75 configuration.
-The tutorial relies on DOMAINcfg tool (NEMO version 5) and [**SOSIE interpolator**](https://github.com/brodeau/sosie).
+This how-to page describes how to build an ORCA2-based configuration with a different number of vertical levels.
+Here, we build a 75 levels configuration, hereafter called ORCA2L75 configuration.
+The tutorial relies on the DOMAINcfg tool from NEMOv5 and [*SOSIE interpolator*](https://github.com/brodeau/sosie).
 
 ### Build the domain file
 To create the domain file for the ORCA2L75 configuration, DOMAINcfg tool requires as input the coordinates and bathymetry of the new configuration. 
-As the horizontal grid is shared with the ORCA2 reference configuration, latitute and longitude can be retrieved from it.
+As the horizontal grid is shared with the ORCA2 reference configuration, latitute and longitude (i.e. nav_lat, nav_lon) can be retrieved from its I/O files.
 Differently, the bathymetry file used here is a modified version of the reference configurantion. Changes have been made in the shallower regions to take advantage of the improved vertical resolution.
 
 DOMAINcfg tool is compiled in the folder ~/nemo_5.0.1/tools with the command
 ```
 ./maketools -m ARCH_FILE -j N_PROCS -n DOMAINcfg
 ```
-If it does not work, try uploading the architecture environment manually with the command *source* ~/nemo_5.0.1/arch/your_architecture.env.
+If it does not work, upload the architecture environment manually by running *source* ~/nemo_5.0.1/arch/your_architecture.env.
 
-The namelist used for running the DOMAINcfg tool is provided in this github repository (cf. *namelists/namelist_DOMAINcfg*).
+The namelist used for DOMAIN_cfg is provided in this github repository (cf. *namelists/namelist_DOMAINcfg*).
 In DOMANIcfg folder, run
 ```
 ./make_domain_cfg.exe
