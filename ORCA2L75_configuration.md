@@ -15,14 +15,15 @@ DOMAINcfg tool is compiled in the folder ~/nemo_5.0.1/tools with the command
 ```
 If it does not work, upload the architecture environment manually by running *source* ~/nemo_5.0.1/arch/your_architecture.env.
 
-The namelist used for DOMAIN_cfg is provided in this github repository (cf. *namelists/namelist_DOMAINcfg*).
-In DOMANIcfg folder, run
+The namelist used for DOMAIN_cfg is provided [*here*](https://github.com/jbladant/ORCA2-demonstrator/blob/main/namelists/namelist_DOMAINcfg).
+To run the tool, execute
 ```
 ./make_domain_cfg.exe
+```
+Afterwards, the following steps allows you to achieve a NEMOv5-compliant domaing_cfg file
+```
 ./dom_doc.exe
-```
-afterwards, the following steps allows you to achieve a NEMOv5-compliant domaing_cfg file
-```
+
 ncks -O --no_abc -C -x -v jpiglo,jpjglo,jpkglo,ORCA,ORCA_index,jperio,ln_zco,ln_zps,ln_sco,ln_isfcav,time_counter domain_cfg.nc domain_cfg_tmp.nc
 
 ncatted -a Iperio,global,c,l,1 -a NFtype,global,c,c,T -a CfgName,global,c,c,ORCA -a CfgIndex,global,c,l,2 -a Jperio,global,c,l,0 -a NFold,global,c,l,1 -a NFType,global,c,c,T -a VertCoord,global,c,c,zps -a IsfCav,global,c,l,0 -a NEMOversion,global,c,c,5.f domain_cfg_tmp.nc domain_cfg.nc
@@ -35,12 +36,12 @@ ncap2 -O --ftn -s "/* create strait shlat: */ ; strait_shlat=array(-1.,0.,glamt)
                -s "/* Danish Straits: */ ; e2u(:,116,144:145)=10.e3 ;" \
                domain_cfg.nc domain_cfg_ORCA2L75.nc
 ```
-The final domain file is domain_cfg_ORCA2L75.nc. 
+The generated domain file is domain_cfg_ORCA2L75.nc. 
 
 ### Interpolate initial conditions and forcing files
 Three-dimensional files provided for the ORCA2_ICE reference configuration (https://gws-access.jasmin.ac.uk/public/nemo/sette_inputs/) must be interpolated.
 The used tool is Sosie, which enables the interpolation between ORCA grids.
-The refer to https://github.com/brodeau/sosie/blob/master/README.md for software compilation and run.
+Please, refer to https://github.com/brodeau/sosie/blob/master/README.md for software compilation and run.
 An example of the namelist used for interpolating the initial salinity is provided in *namelists/namelist.sosie.salinity*.
 
 The fields of reference configuration that requires interpolation are 
