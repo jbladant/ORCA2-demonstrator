@@ -38,8 +38,6 @@ To output it during the model run, add it to `file_def_nemo-pisces.xml`. For exa
 ```
 If you now rerun the NEMO executable, you should find the `ZO2MIN` variable in `ORCA2_1m_00010101_00021231_ptrc_T.nc`. 
 
-<mark> Include Image </mark>
-
 ### 2.2 New diagnostics
 If the variable you want to output is not in `field_def`, you need to add it in both `field_def` and `file_def` as described above. For example, `field_def_nemo-oce.xml` contains sea surface temperature (`sst`) and its square (`sst2`)
 ```
