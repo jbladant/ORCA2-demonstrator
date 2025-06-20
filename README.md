@@ -8,7 +8,7 @@ The ORCA2 demonstrator is a use case for the NEMO ocean model based on the defau
 
 <!-- #### Making adjustments for different levels of experience with NEMO -->
 #### Customizations
-[How to add new variables to the outputs](https://github.com/jbladant/ORCA2-demonstrator/blob/main/Add%20new%20outputs.md) enables to expand the output fields and to change their frequency by modificationa of the xml files. An example is provided with the 
+[How to add new variables to the outputs](https://github.com/jbladant/ORCA2-demonstrator/blob/main/Add%20new%20outputs.md) enables to expand the output fields and to change their frequency by modificationa of the xml files. An example is provided with the depth of the minimum oxygen cocentration.
 
 [How to change the vertical resolution in ORCA2](https://github.com/jbladant/ORCA2-demonstrator/blob/main/ORCA2L75_configuration.md), in this case increasing the number of levels from 31 levels (default) to 75 levels by using the DOMAINcfg tool. 
 
