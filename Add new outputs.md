@@ -11,18 +11,17 @@ The variables that *are* output are defined in `EXP00/file_def_nemo-XXX.xml`.
 
 `field_def` organises possible output variables in groups. The top level is which grid the variable is defined, i.e. `grid_[TUVW]`. Within these groups, there are subgroups for different types of variables, for example in `field_def_nemo-oce.xml` in the `grid_T` group there are 2D variables (like sea surface temperature and salinity) and 3D variables (like full field temperature and salinity). 
 
-<mark> Include screenshot of field_def </mark>
+<img src="images/screenshot_field_def.png" align="center" > 
 
 Each variable has a short identifier and a long name and unit. It's also possible to calculate variables within `field_def`, see for example in the screenshot above includes the square of sea surface temperature (`sst2`) and the maximum of sea surface temperature (`sstmax`) by using the `operation` entry.
 
 `file_def` is organised in a similar manner with groups for outputting different files, e.g.
 
-<mark> Include screenshot </mark>
+<img src="images/screenshot_file_def.png" align="center" > 
 
-This is an example of 5-daily outputs for physical variables (`output_freq="5d"`). The file will be saved with a suffix grid_T (`name_suffix="_grid_T"`). Again, operations can be done on the variables at this stage before writing the outputs (e.g. the standard deviation of sea surface temperature `sqrt( @sst2 - @sst * @sst )`).
+This is an example of 5-daily outputs for physical variables (`output_freq="5d"`). The file will be saved with a suffix grid_T (`name_suffix="_grid_T"`). Again, operations can be done on the variables at this stage before writing the outputs (e.g. the standard deviation of sea surface temperature `sqrt( @sst2 - @sst * @sst )`). For information, `operation="instant"` in the variable definition writes out the instantaneous model output at that time step while `operation="average"` averages over the period defined for this group.
 
-
-Find more information about outputting variables in the [XIOS manual](https://www.xios3.com/files/xios3developermanual.pdf).
+Find more information about outputting variables in the [XIOS user guide](https://forge.ipsl.fr/ioserver) on this page.
 
 ## <a name="add_variable"></a> 2. How to add a new variable 
 
