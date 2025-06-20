@@ -42,9 +42,9 @@ The generated domain file is domain_cfg_ORCA2L75.nc.
 Three-dimensional files provided for the ORCA2_ICE reference configuration (https://gws-access.jasmin.ac.uk/public/nemo/sette_inputs/) must be interpolated.
 The used tool is Sosie, which enables the interpolation between ORCA grids.
 Please, refer to https://github.com/brodeau/sosie/blob/master/README.md for software compilation and run.
-An example of the namelist used for interpolating the initial salinity is provided in *namelists/namelist.sosie.salinity*.
+An example of the namelist used for interpolating the initial salinity is provided [*here*](https://github.com/jbladant/ORCA2-demonstrator/blob/main/namelists/namelist.sosie.salinity).
 
-The fields of reference configuration that requires interpolation are 
+The fields that requires 3D-interpolation are 
 - initial potential temperature and salinity
 - 3D eddy viscosity, monthly reference salinity
 - restoring.
