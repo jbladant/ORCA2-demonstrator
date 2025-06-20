@@ -33,7 +33,14 @@ Please refer to [**Running ORCA2_ICE_PISCES**](https://github.com/jbladant/ORCA2
 
 ### 3.1 Create the new DOMAIN
 
-- Put compiling instructions here? or in the main readme?
+First, you need to compile the DOMAINcfg tool located in $WORK/your_NEMO_dirname/tools
+To do this, you need to follow the same logic than for compiling NEMO (notably use the same arch files) and execute the maketools command.
+Using the Irene supercomputer as an example (thus the arch files would be X64_IRENE.fcm, X64_IRENE.env and X64_IRENE.path), do the following:
+```
+cd $WORK/your_NEMO_dirname/tools
+./maketools -m X64_IRENE -n DOMAINcfg
+```
+Note that the same logic is to be followed if you need to compile other tools provided by NEMO, like WEIGHTS for instance.
 
 Create a DOMAIN_PALEORCA2 folder in your PALEORCA2_demonstrator_forcings directory:
 ```
