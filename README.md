@@ -14,7 +14,9 @@ The ORCA2 demonstrator is a use case for the NEMO ocean model based on the defau
 
 [The Paleo Earth set-up for the early Eocene](https://github.com/jbladant/ORCA2-demonstrator/blob/main/Paleo_Earth.md) includes changes in location of continents, rotating the tripolar grid, and changing bathymetry.
 
-This demonstrator is a contribution to the NEMO Zoo hackathon 2025. 
+This demonstrator is a contribution to the NEMO Zoo hackathon 2025.
+
+Exeter, 20th June 2025
 
 <img src="https://www.nemo-ocean.eu/wp-content/uploads/graphics.004-1024x576.jpeg" align="center" width="400"> 
 
