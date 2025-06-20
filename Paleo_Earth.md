@@ -21,7 +21,7 @@ gunzip PALEORCA2_demonstrator_forcings.tar.gz
 tar -xvf PALEORCA2_demonstrator_forcings.tar
 ```
 
-You should now have a folder ~/PALEORCA2_demonstrator_forcings/ containing all the necessary files to run the demonstrator in your $WORK.
+You should now have a folder $WORK/PALEORCA2_demonstrator_forcings/ containing all the necessary files to run the demonstrator.
 
 
 ## 3. Paleoclimate instructions
