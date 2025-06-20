@@ -10,9 +10,17 @@ The variables that *are* output are defined in `EXP00/file_def_nemo-XXX.xml`.
 
 ## <a name="field_and_file"></a> Contents of `field_def` and `file_def`
 
+`field_def` organises possible output variables in groups. The top level is which grid the variable is defined, i.e. `grid_[TUVW]`. Within these groups, there are subgroups for different types of variables, for example in `field_def_nemo-oce.xml` in the `grid_T` group there are 2D variables (like sea surface temperature and salinity) and 3D variables (like full field temperature and salinity). 
+
+<mark> Include screenshot of field_def </mark>
+
+Each variable has a short identifier and a long name and unit. It's also possible to calculate variables within `field_def`, see for example in the screenshot above includes the square of sea surface temperature (`sst2`) and the maximum of sea surface temperature (`sstmax`) by using the `operation` entry.
+
+
+
 <mark> Include screenshots and explain how to read the files </mark>
 
-find XIOS documentation
+Find more information about outputting variables in the [XIOS manual](https://www.xios3.com/files/xios3developermanual.pdf)
 
 ## <a name="add_variable"></a> How to add a new variable 
 
