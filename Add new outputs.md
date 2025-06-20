@@ -16,11 +16,14 @@ The variables that *are* output are defined in `EXP00/file_def_nemo-XXX.xml`.
 
 Each variable has a short identifier and a long name and unit. It's also possible to calculate variables within `field_def`, see for example in the screenshot above includes the square of sea surface temperature (`sst2`) and the maximum of sea surface temperature (`sstmax`) by using the `operation` entry.
 
+`file_def` is organised in a similar manner with groups for outputting different files, e.g.
+
+<mark> Include screenshot </mark>
+
+This is an example of 5-daily outputs for physical variables (`output_freq="5d"`). The file will be saved with a suffix grid_T (`name_suffix="_grid_T"`). Again, operations can be done on the variables at this stage before writing the outputs (e.g. the standard deviation of sea surface temperature `sqrt( @sst2 - @sst * @sst )`).
 
 
-<mark> Include screenshots and explain how to read the files </mark>
-
-Find more information about outputting variables in the [XIOS manual](https://www.xios3.com/files/xios3developermanual.pdf)
+Find more information about outputting variables in the [XIOS manual](https://www.xios3.com/files/xios3developermanual.pdf).
 
 ## <a name="add_variable"></a> How to add a new variable 
 
